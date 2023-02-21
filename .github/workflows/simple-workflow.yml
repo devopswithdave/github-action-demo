@@ -31,6 +31,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
+        shell: sh
         run: |
           version="0.11"
           NEXTVERSION=$(echo ${version} | awk -F. -v OFS=. 'NF==1{print ++$NF}; NF>1{if(length($NF+1)>length($NF))$(NF-1)++; $NF=sprintf("%0*d", length($NF), ($NF+1)%(10^length($NF))); print}')
